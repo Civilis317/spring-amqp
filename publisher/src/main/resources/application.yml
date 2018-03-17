@@ -1,0 +1,15 @@
+app:
+  name: "@project.artifactId@"
+  version: "@project.version@"
+
+server:
+  contextPath: "/publisher"
+  port: 8080
+
+spring:
+  rabbitmq:
+    host: "localhost"
+    port: "5672"
+
+
+

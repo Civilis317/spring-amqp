@@ -1,0 +1,13 @@
+app:
+  name: "@project.artifactId@"
+  version: "@project.version@"
+
+spring:
+  rabbitmq:
+    host: "localhost"
+    port: "5672"
+
+rabbitmqSubscription:
+  queue: "test-queue"
+  json-queue: "json-test-queue"
+
