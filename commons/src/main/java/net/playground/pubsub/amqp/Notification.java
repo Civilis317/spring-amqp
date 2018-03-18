@@ -1,45 +1,45 @@
 package net.playground.pubsub.amqp;
 
 public class Notification {
-    private String sender;
-    private String recipient;
+    private String domain;
+    private String environment;
     private String message;
     private long received;
 
     public Notification() {
     }
 
-    public Notification(String sender, String recipient, String message) {
-        this.sender = sender;
-        this.recipient = recipient;
+    public Notification(String domain, String environment, String message) {
+        this.domain = domain;
+        this.environment = environment;
         this.message = message;
     }
 
     @Override
     public String toString() {
         return "Notification{" +
-                "sender='" + sender + '\'' +
-                ", recipient='" + recipient + '\'' +
+                "domain='" + domain + '\'' +
+                ", environment='" + environment + '\'' +
                 ", message='" + message + '\'' +
                 ", received=" + received +
                 '}';
     }
 
     // getters and setters
-    public String getSender() {
-        return sender;
+    public String getDomain() {
+        return domain;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 
-    public String getRecipient() {
-        return recipient;
+    public String getEnvironment() {
+        return environment;
     }
 
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    public void setEnvironment(String environment) {
+        this.environment = environment;
     }
 
     public String getMessage() {

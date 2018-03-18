@@ -1,0 +1,29 @@
+How to enable the rabbitmq shovel-plugin, when running as a docker container:
+============================================================================
+
+1. Find the docker container's id:
+$ docker ps
+CONTAINER ID        IMAGE                 COMMAND                 ...
+cf3cf37335ac        rabbitmq:management   "docker-entrypoint.s…"  ...
+
+
+2. Get into the docker container:
+docker exec -it cf3cf37335ac bash
+
+
+3. Enable the plugins
+# rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management
+
+Response:
+The following plugins have been configured:
+  rabbitmq_amqp1_0
+  rabbitmq_management
+  rabbitmq_management_agent
+  rabbitmq_shovel
+  rabbitmq_shovel_management
+  rabbitmq_web_dispatch
+Applying plugin configuration to rabbit@cf3cf37335ac...
+The following plugins have been enabled:
+  rabbitmq_amqp1_0
+  rabbitmq_shovel
+  rabbitmq_shovel_management

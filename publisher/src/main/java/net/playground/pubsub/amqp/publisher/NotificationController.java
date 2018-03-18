@@ -21,13 +21,14 @@ public class NotificationController {
     public @ResponseBody Notification sendNotification(@RequestBody Notification notification) {
         notification.setReceived(System.currentTimeMillis());
         publisher.publish(notification);
+        logger.info(notification.toString());
         return notification;
     }
 
     @GetMapping("example")
     public @ResponseBody
     Notification getExampleNotification() {
-        return new Notification("Postman", "Subscriber", "Ajax Kampioen!");
+        return new Notification("BO-OP", "dev", "Ajax Kampioen!");
     }
 
 }

@@ -6,8 +6,12 @@ spring:
   rabbitmq:
     host: "localhost"
     port: "5672"
+    listener:
+      simple:
+        acknowledge-mode: manual
+
 
 rabbitmqSubscription:
-  queue: "test-queue"
-  json-queue: "json-test-queue"
+  boop-queue: "q_dev_boop"
+  botm-queue: "q_dev_botm"
 
