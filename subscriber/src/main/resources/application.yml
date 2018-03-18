@@ -14,4 +14,4 @@ spring:
 rabbitmqSubscription:
   boop-queue: "q_dev_boop"
   botm-queue: "q_dev_botm"
-
+  bods-queue: "q_dev_bods"

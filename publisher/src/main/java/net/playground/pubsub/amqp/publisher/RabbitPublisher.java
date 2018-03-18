@@ -17,14 +17,10 @@ public class RabbitPublisher {
     }
 
     public void publish(Notification notification) {
-        validate(notification);
         String exchangeName = "x_dochub";
         String routingKey = assembleRoutingKey(notification);
         logger.info("routing-key: {}", routingKey );
         rabbitTemplate.convertAndSend(exchangeName, routingKey, notification);
-
-        // second publication to json queue
-        //rabbitTemplate.convertAndSend(exchangeName, "json-notification", notification);
     }
 
     private String assembleRoutingKey(Notification notification) {
@@ -33,19 +29,5 @@ public class RabbitPublisher {
                 .append("_")
                 .append(notification.getDomain().replace("-", "").toLowerCase());
         return sb.toString();
-    }
-
-    private void validate(Notification notification) {
-        if (notification == null) {
-            throw new IllegalArgumentException("Notification may not be null");
-        }
-
-        if (notification.getDomain() == null || notification.getDomain().isEmpty()) {
-            throw new IllegalArgumentException("Filed 'domain' may not be empty");
-        }
-
-        if (notification.getEnvironment() == null || notification.getEnvironment().isEmpty()) {
-            throw new IllegalArgumentException("Filed 'environment' may not be empty");
-        }
     }
 }

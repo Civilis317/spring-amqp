@@ -44,4 +44,14 @@ public class RabbitSubscriber {
         }
     }
 
+    @RabbitListener(queues = "${rabbitmqSubscription.bods-queue}")
+    public void receiveBodsMessage(Notification notification, Channel channel,  @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
+        logger.info(notification.toString());
+        if (reject) {
+            channel.basicReject(tag, requeue);
+        } else {
+            channel.basicAck(tag, requeue);
+        }
+    }
+
 }
