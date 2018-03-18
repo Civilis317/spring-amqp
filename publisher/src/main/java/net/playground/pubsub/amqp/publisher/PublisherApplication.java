@@ -2,6 +2,7 @@ package net.playground.pubsub.amqp.publisher;
 
 
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.boot.SpringApplication;
@@ -22,4 +23,8 @@ public class PublisherApplication {
         return rabbitTemplate;
     }
 
+    @Bean
+    public RabbitAdmin rabbitAdmin(final ConnectionFactory connectionFactory) {
+        return new RabbitAdmin(connectionFactory);
+    }
 }
