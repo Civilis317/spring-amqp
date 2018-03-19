@@ -11,5 +11,10 @@ spring:
     host: "localhost"
     port: "5672"
 
-
+queueConfig:
+  exchangeName: "x_dochub"
+  queueNameList:
+    - "q_dev_boop"
+    - "q_dev_botm"
+    - "q_dev_bods"
 
